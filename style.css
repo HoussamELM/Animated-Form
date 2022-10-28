@@ -127,3 +127,11 @@ button {
   align-self: flex-start;
 }
 
+#character{ 
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(10%, 38%) scale(0.9);
+}
+
+

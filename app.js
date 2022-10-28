@@ -99,6 +99,19 @@ checkbox.addEventListener("click", ()=>{
     }
 })
 
+gsap.set("#eye", {transformOrigin: "center"});
+
+gsap.fromTo(
+   "#eye",
+     {scaleY: 1},
+     {scaleY: 0.05, repeat: -1, yoyo: true, repeatDelay: 0.5, ease: "Power2.easeOut"}
+);
+gsap.fromTo(
+   "#eyebrow",
+     {y: -1},
+     {y: 0, repeat: -1, yoyo: true, repeatDelay: 0.5, ease: "Power2.easeOut"}
+);
+
 // functions 
 
 function validateEmail(email) {
