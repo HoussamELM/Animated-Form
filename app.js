@@ -65,7 +65,7 @@ form.addEventListener("click", () => {
             }
             if(e.target.type === 'tel')
             {
-                let valid = validateEmail(e.target.value);
+                let valid = validatePhone(e.target.value);
                 if(valid){
                     colorize("#6391e8", line, placeholder);
                 }else{
