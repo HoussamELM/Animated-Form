@@ -99,18 +99,44 @@ checkbox.addEventListener("click", ()=>{
     }
 })
 
-gsap.set("#eye", {transformOrigin: "center"});
+gsap.set(".eye", {transformOrigin: "center"});
 
 gsap.fromTo(
-   "#eye",
+   ".eye",
      {scaleY: 1},
      {scaleY: 0.05, repeat: -1, yoyo: true, repeatDelay: 0.5, ease: "Power2.easeOut"}
 );
 gsap.fromTo(
-   "#eyebrow",
+   ".eyebrow",
      {y: -1},
      {y: 0, repeat: -1, yoyo: true, repeatDelay: 0.5, ease: "Power2.easeOut"}
 );
+
+// button 
+
+const button = document.querySelector("button")
+const tl3 = gsap.timeline({
+    defaults : {duration: 0.75, ease: "Power2.easeOut"}
+});
+
+gsap.set("#hand", {rotation: 3});
+
+button.addEventListener("click", (e)=>{
+    e.preventDefault();
+    tl3.to('.contact-right, .contact-left', {y:30, opacity: 0, PointerEvents: "none"})
+    tl3.to("form", {scale: 0.8}, "<")
+    tl3.fromTo(".submitted", {opacity: 0, y: 30}, {opacity: 1, y: 0})
+
+
+gsap.set("#hand", {transformOrigin: "bottom"});
+
+    gsap.fromTo(
+       "#hand",
+         {rotation:0, yo:0, ease: ""},
+         {rotation: -8, y:2, yoyo: true, repeat: -1, duration: 0.8, delay: 1},"<"
+    );
+     
+})
 
 // functions 
 
