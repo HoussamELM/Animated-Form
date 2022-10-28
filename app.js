@@ -79,6 +79,28 @@ form.addEventListener("click", () => {
 })
 
 
+// checkbox
+ 
+const checkbox = document.querySelector(".checkbox");
+const tl2 = gsap.timeline({defaults: {duration : 0.5, ease: "Power2.easeOut"}}, )
+
+const tickMarkPath = document.querySelector(".tick-mark path");
+const pathLength = tickMarkPath.getTotalLength();
+
+gsap.set(tickMarkPath, {strokeDashoffset: pathLength, strokeDasharray: pathLength});
+
+checkbox.addEventListener("click", ()=>{
+    if(checkbox.checked){
+        tl2.to(".checkbox-fill", {top: "0%"})
+        tl2.fromTo(tickMarkPath, {strokeDashoffset: pathLength}, {strokeDashoffset: 0})
+    }else {
+        tl2.fromTo(tickMarkPath, {strokeDashoffset: 0}, {strokeDashoffset: pathLength})
+        tl2.to(".checkbox-fill", {top: "100%"})     
+    }
+})
+
+// functions 
+
 function validateEmail(email) {
     let re = /\S+@\S+\.\S+/;
     return re.test(email);
